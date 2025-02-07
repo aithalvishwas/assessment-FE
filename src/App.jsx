@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './page/Home';;
+import Home from './page/Home/Home';;
 import { CircularProgress, Container } from '@mui/material';
 
 // Lazy load the UserDetails page for performance optimization

@@ -19,14 +19,13 @@ const UserGrid = ({ users }) => {
               <CardMedia
                 component="img"
                 height="140"
-                image={user.imageUrl || placeholderImage}
+                image={user.url || placeholderImage}
                 alt={`${user.firstName} ${user.lastName}`}
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
                   {user.firstName} {user.lastName}
                 </Typography>
-                {/* Display additional attributes as desired */}
                 <Typography variant="body2" color="text.secondary">
                   SSN: {user.ssn}
                 </Typography>

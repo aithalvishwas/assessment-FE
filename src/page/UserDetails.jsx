@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, Card, CardMedia, CardContent, CircularProgress } from '@mui/material';
+import { Container, Typography, Card, CardMedia, CardContent, CircularProgress, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { getUserById } from '../api/api';
+
+const placeholderImage = 'https://via.placeholder.com/300';
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -41,23 +43,31 @@ const UserDetails = () => {
   }
 
   return (
-    <Container maxWidth="sm" sx={{ marginTop: 4 }}>
+    <Container maxWidth="md" sx={{ marginTop: 4 }}>
       <Card>
-        <CardMedia
-          component="img"
-          height="300"
-          image={user.imageUrl || placeholderImage}
-          alt={`${user.firstName} ${user.lastName}`}
-        />
-        <CardContent>
-          <Typography variant="h5" gutterBottom>
-            {user.firstName} {user.lastName}
-          </Typography>
-          <Typography variant="body1">
-            SSN: {user.ssn}
-          </Typography>
-          {/* Render additional attributes as desired */}
-        </CardContent>
+        <Grid container>
+          <Grid item xs={12} md={4}>
+            <CardMedia
+              component="img"
+              image={user.url || placeholderImage}
+              alt={`${user.firstName} ${user.lastName}`}
+              sx={{ height: 300 }}
+            />
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                {user.firstName} {user.lastName}
+              </Typography>
+              <Typography variant="body1">Email: {user.email}</Typography>
+              <Typography variant="body1">SSN: {user.ssn}</Typography>
+              <Typography variant="body1">Gender: {user.gender}</Typography>
+              <Typography variant="body1">Birth Date: {user.birthDate}</Typography>
+              <Typography variant="body1">Weight: {user.weight}</Typography>
+              <Typography variant="body1">Height: {user.height}</Typography>
+            </CardContent>
+          </Grid>
+        </Grid>
       </Card>
     </Container>
   );
