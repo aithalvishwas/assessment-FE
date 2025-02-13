@@ -1,4 +1,4 @@
-# Publicis Sapient Project Assessment
+#  Project Assessment
 
 ## Backend Setup
 To successfully run the project, follow the backend setup steps provided in the repository:
